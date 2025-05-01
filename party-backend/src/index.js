@@ -1,11 +1,17 @@
-import config from './config.js';
+//Dependencies
 import express from 'express';
-import authRouter from "./routes/auth.js";
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
 import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+//Import Files
+import config from './config.js';
+//Routers
+import authRouter from "./routes/auth.js";
+import partyRouter from "./routes/party.js";
 
 const app = express();
+
+//Enabling important dependencies
 dotenv.config();
 app.use(express.json());
 app.use(cors(
@@ -15,7 +21,9 @@ app.use(cors(
 )); // Enable CORS for all routes
 mongoose.connect(config.dbConnection);
 
+//Routes
 app.use('/auth', authRouter);
+app.use('/party', partyRouter);
 
 app.get('/', (req, res) => {
     res.status(200);

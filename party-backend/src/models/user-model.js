@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    location: {
+    city: {
         type: String,
         required: true,
     }
