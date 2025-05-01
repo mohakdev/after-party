@@ -21,6 +21,10 @@ const partySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    ticket_price: {
+        type: Number,
+        required: true,
+    },
     participants: {
         type: [String],
         required: false,

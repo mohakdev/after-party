@@ -25,6 +25,7 @@ const createParty = async (req, res) => {
             city: data.city,
             address: data.address,
             date_time: data.date_time,
+            ticket_price: data.ticket_price,
         });
         newParty.participants.push(req.user._id);
         await newParty.save();

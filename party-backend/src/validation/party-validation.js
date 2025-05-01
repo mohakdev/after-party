@@ -17,10 +17,13 @@ const partyValidationSchema = {
             errorMessage: 'Address should be at least 8 chars',
         },
     },
-
     date_time: {
         isString: true,
         errorMessage: 'Invalid date',
+    },
+    ticket_price: {
+        isString: false,
+        errorMessage: 'ticket price cannot be a string'
     }
 }
 
