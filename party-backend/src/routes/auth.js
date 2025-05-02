@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { checkSchema, matchedData, validationResult } from "express-validator";
 import userValidationSchema from "../validation/user-validation.js";
+import loginValidationSchema from "../validation/login-validation.js";
 import authToken from "../middlewares/token.js";
 import userModel from "../models/user-model.js";
 import jwt from "jsonwebtoken";
@@ -23,6 +24,7 @@ const handleRegistration = async (req, res) => {
     }
     //Create a new user
     const newUser = new userModel({
+        name: data.name,
         email: data.email,
         password: data.password,
         city: req.body.city,
@@ -57,7 +59,7 @@ const handleLogin = async (req, res) => {
     }
 }
 
-router.post('/login', checkSchema(userValidationSchema), handleLogin);
+router.post('/login', checkSchema(loginValidationSchema), handleLogin);
 router.post('/register', checkSchema(userValidationSchema), handleRegistration);
 
 export default router;

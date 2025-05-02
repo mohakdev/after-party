@@ -71,9 +71,27 @@ const joinParty = async (req, res) => {
         return res.status(400).json({ message: 'Unable to join party' });
     }
 }
+const guestList = async (req, res) => {
+    try {
+        const partyId = req.params.partyId;
+        const party = await partyModel.findById({ _id: partyId });
+
+        const guests = await Promise.all(
+            party.participants.map(async (userId) => {
+                const user = await userModel.findById(userId).select("name");
+                return user ? user.name : "Unknown User";
+            })
+        );
+        return res.status(200).json({ guests: guests });
+    }
+    catch {
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
+}
 
 router.post('/create', authToken, checkSchema(partyValidationSchema), createParty);
 router.get('/nearest', authToken, nearestParties);
 router.put('/join/:partyId', authToken, joinParty);
+router.get('/guest-list/:partyId', authToken, guestList);
 
 export default router;
