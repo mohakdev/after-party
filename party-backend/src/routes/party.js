@@ -26,8 +26,9 @@ const createParty = async (req, res) => {
             address: data.address,
             date_time: data.date_time,
             ticket_price: data.ticket_price,
+            ticket_quantity: data.ticket_quantity,
         });
-        newParty.participants.push(req.user._id);
+        newParty.participants.push({ guest_id: req.user._id, tickets: 1 });
         await newParty.save();
         return res.status(200).json({ message: 'New Party Created' });
     }
@@ -56,10 +57,11 @@ const joinParty = async (req, res) => {
     try {
         const userId = req.user._id;
         const partyId = req.params.partyId;
+        const tickets = req.body.tickets;
         const party = await partyModel.findById({ _id: partyId });
 
-        if (party.participants.find(user => user !== userId)) {
-            party.participants.push(userId);
+        if (party.participants.find(user => user.guest_id !== userId)) {
+            party.participants.push({ guest_id: userId, tickets: tickets });
             await party.save();
             return res.status(200).json({ message: 'Party joined successfully' });
         }
@@ -77,9 +79,9 @@ const guestList = async (req, res) => {
         const party = await partyModel.findById({ _id: partyId });
 
         const guests = await Promise.all(
-            party.participants.map(async (userId) => {
-                const user = await userModel.findById(userId).select("name");
-                return user ? user.name : "Unknown User";
+            party.participants.map(async (user) => {
+                const guest = await userModel.findById(user.guest_id).select("name");
+                return guest ? guest.name : "Unknown User";
             })
         );
         return res.status(200).json({ guests: guests });

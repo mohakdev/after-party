@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+const participantSchema = new mongoose.Schema({
+    guest_id: { type: String },
+    tickets: { type: Number }
+})
+
 const partySchema = new mongoose.Schema({
     host_id: {
         type: String,
@@ -25,10 +30,11 @@ const partySchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    participants: {
-        type: [String],
+    ticket_quantity: {
+        type: Number,
         required: false,
-    }
+    },
+    participants: [participantSchema],
 })
 
 export default mongoose.model('Party', partySchema);

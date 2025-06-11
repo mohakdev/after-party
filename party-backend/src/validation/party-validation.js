@@ -24,6 +24,10 @@ const partyValidationSchema = {
     ticket_price: {
         isString: false,
         errorMessage: 'ticket price cannot be a string'
+    },
+    ticket_quantity: {
+        isString: false,
+        errorMessage: 'ticket price cannot be a string'
     }
 }
 
