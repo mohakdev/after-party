@@ -42,7 +42,7 @@ const homeStyle = StyleSheet.create({
     },
     partyButtonStyle: {
         height: 200,
-        width: '90%',
+        width: '95%',
         alignSelf: 'center',
         marginVertical: 10,
         borderRadius: 16,

@@ -25,15 +25,15 @@ const PartyProfile = (props: PartyProps) => {
 
     return (
         <View style={homeStyle.partyButtonStyle}>
-            <ImageBackground source={props.image} style={homeStyle.partyImage}
-                resizeMode='cover'>
-                <Pressable onPress={props.onClick}>
+            <Pressable onPress={props.onClick} style={{ height: '100%', width: '100%' }}>
+                <ImageBackground source={props.image} style={homeStyle.partyImage}
+                    resizeMode='cover'>
                     <BlurView intensity={70} tint='dark' style={{ paddingBottom: 6, paddingLeft: 8 }}>
                         <Text style={homeStyle.partyNameStyle}>{props.party_name}</Text>
                         <Text style={homeStyle.partyTimeStyle}>{getTimeInString()}</Text>
                     </BlurView>
-                </Pressable>
-            </ImageBackground>
+                </ImageBackground>
+            </Pressable>
         </View>
     )
 }

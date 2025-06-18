@@ -1,8 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { backgroundColor } from './styles/colors';
 import { useFonts } from 'expo-font';
+import Home from './screens/Home';
+import PartyScreen from './screens/PartyScreen';
+import { RootStackParamList } from './types/navigation';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   const [loaded, error] = useFonts({
@@ -20,19 +25,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Home />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false, statusBarStyle: 'inverted' }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Party" component={PartyScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexGrow: 1,
-    paddingTop: 30,
-    paddingLeft: 8,
-    paddingRight: 8,
-    backgroundColor: backgroundColor,
-  },
-});
