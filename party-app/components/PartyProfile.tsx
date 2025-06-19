@@ -14,12 +14,20 @@ const PartyProfile = (props: PartyProps) => {
 
     function getTimeInString(): string {
         let time = '';
+        let hours = props.date_time.getHours();
+        let minutes = props.date_time.getMinutes();
+        let meridian = 'AM';
         if (props.date_time.getHours() > 12) //Convert to PM 
         {
-            time += props.date_time.getHours() - 12;
-            time += ' : ' + props.date_time.getMinutes() + ' PM';
+            hours -= 12;
+            meridian = 'PM';
         }
-        else { time += props.date_time.getHours() + ' : ' + props.date_time.getMinutes() + ' AM' }
+
+        const hourString = hours < 10 ? '0' + hours.toString() : hours.toString();
+        const minuteString = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+
+        time = hourString + ' : ' + minuteString + ' ' + meridian;
+
         return time;
     }
 
@@ -28,7 +36,7 @@ const PartyProfile = (props: PartyProps) => {
             <Pressable onPress={props.onClick} style={{ height: '100%', width: '100%' }}>
                 <ImageBackground source={props.image} style={homeStyle.partyImage}
                     resizeMode='cover'>
-                    <BlurView intensity={70} tint='dark' style={{ paddingBottom: 6, paddingLeft: 8 }}>
+                    <BlurView experimentalBlurMethod='dimezisBlurView' intensity={5} tint='dark' style={{ paddingBottom: 6, paddingLeft: 8 }}>
                         <Text style={homeStyle.partyNameStyle}>{props.party_name}</Text>
                         <Text style={homeStyle.partyTimeStyle}>{getTimeInString()}</Text>
                     </BlurView>

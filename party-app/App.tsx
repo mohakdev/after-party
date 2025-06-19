@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
+//React Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { backgroundColor } from './styles/colors';
-import { useFonts } from 'expo-font';
-import Home from './screens/Home';
-import PartyScreen from './screens/PartyScreen';
 import { RootStackParamList } from './types/navigation';
+//Screens
+import PartyScreen from './screens/PartyScreen';
+import HomeScreen from './screens/HomeScreen';
+
+import { useFonts } from 'expo-font';
+import { backgroundColor } from './styles/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,8 +29,15 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false, statusBarStyle: 'inverted' }}>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+          animation: 'none',
+          statusBarStyle: 'inverted',
+          presentation: 'transparentModal',
+          contentStyle: { backgroundColor: backgroundColor }
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Party" component={PartyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
