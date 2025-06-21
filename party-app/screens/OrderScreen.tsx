@@ -8,20 +8,19 @@ import ActionButton from '../components/ActionButton';
 import SelectQuantity from '../components/SelectQuantity';
 import orderStyle from '../styles/orderStyles';
 import TextRow from '../components/TextRow';
+import { calculatePrices } from '../hooks/calculatePrices';
+import GrandTotal from '../components/GrandTotal';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Order'>;
 
 const OrderScreen = ({ navigation, route }: NavigationProps) => {
     const [quantity, setQuantity] = React.useState(1);
-
-    let totalPrice = route.params.party.ticket_price * quantity;
-    let taxes = 0.18 * totalPrice; // Assuming 18% tax
-    useEffect(() => {
-        totalPrice = route.params.party.ticket_price * quantity;
-        taxes = 0.1 * totalPrice; // Assuming 18% tax
-        console.log(`Total price updated: ₹${totalPrice}`);
-    }, [quantity]);
-
+    let {
+        totalPrice,
+        taxes,
+        platformFees,
+        grandTotal,
+    } = calculatePrices(route.params.party.ticket_price, quantity);
 
     return (
         <View style={mainStyles.screen}>
@@ -31,9 +30,9 @@ const OrderScreen = ({ navigation, route }: NavigationProps) => {
             <Text style={[orderStyle.subHeader, { marginTop: 20, }]}>Order Summary</Text>
             <TextRow label='Item Total' value={'₹' + totalPrice.toString()} />
             <TextRow label='Subtotal' value={'₹' + totalPrice.toString()} />
-            <TextRow label='Platform Fees' value='₹12' />
-            <TextRow label='GST' value={'₹' + Math.round(taxes).toString()} />
-
+            <TextRow label='Platform Fees' value={'₹' + platformFees} />
+            <TextRow label='GST' value={'₹' + taxes.toString()} />
+            <GrandTotal totalPrice={grandTotal} />
             <ActionButton title='PROCEED TO PAY' onClick={() => console.log("Ticket was purchased!")} />
         </View>
     )
