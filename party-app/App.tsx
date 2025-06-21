@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 
 import { useFonts } from 'expo-font';
 import { backgroundColor } from './styles/colors';
+import OrderScreen from './screens/OrderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -39,6 +40,7 @@ export default function App() {
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Party" component={PartyScreen} />
+        <Stack.Screen name="Order" component={OrderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

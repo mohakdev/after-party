@@ -1,0 +1,17 @@
+Copyright (c) 2025 Mohak. All rights reserved.
+
+This software and its source code are the intellectual property of Mohak. 
+Unauthorized reproduction, modification, distribution, or use of this software, in whole or in part, is strictly prohibited.
+
+You may not:
+- Copy or redistribute this code in any form or medium
+- Modify or adapt the code for your own use
+- Include any portion of this code in commercial or non-commercial projects
+- Share, publish, or host this code publicly or privately
+
+Use of this software is permitted **only** with express written permission from the author.
+
+This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the author be liable for any claim, damages, or other liability arising from the use or distribution of this software.
+
+For licensing inquiries or permission requests, contact: mohakj500@gmail.com
+

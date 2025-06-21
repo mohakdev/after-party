@@ -9,6 +9,10 @@ import partyStyle from '../styles/partyStyles';
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Party'>;
 
 const PartyScreen = ({ navigation, route }: NavigationProps) => {
+    const orderParams = {
+        userId: "123", // This should be replaced with actual user ID from context or state
+        party: route.params.party,
+    }
     return (
         <View style={mainStyles.screen}>
             <View style={partyStyle.imageView}>
@@ -24,7 +28,7 @@ const PartyScreen = ({ navigation, route }: NavigationProps) => {
 
             <Text style={partyStyle.subHeader}>Host</Text>
             <Text style={partyStyle.content}>{route.params.party.host_id}</Text>
-            <ActionButton title='BUY TICKETS' onClick={() => navigation.navigate("Home")} />
+            <ActionButton title='BUY TICKETS' onClick={() => navigation.navigate("Order", orderParams)} />
         </View>
     )
 }
