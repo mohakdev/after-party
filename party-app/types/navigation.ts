@@ -1,8 +1,8 @@
 import Party from "./party";
 
 export type RootStackParamList = {
+    Login: undefined;
     Home: undefined;
-    Register: undefined;
     Party: { party: Party };
     Order: { userId: string, party: Party };
     Profile: { userId: string };

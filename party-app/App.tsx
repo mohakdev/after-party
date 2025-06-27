@@ -10,6 +10,7 @@ import HomeScreen from './screens/HomeScreen';
 import { useFonts } from 'expo-font';
 import { backgroundColor } from './styles/colors';
 import OrderScreen from './screens/OrderScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -30,7 +31,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"
+      <Stack.Navigator initialRouteName="Login"
         screenOptions={{
           headerShown: false,
           animation: 'none',
@@ -38,6 +39,7 @@ export default function App() {
           presentation: 'transparentModal',
           contentStyle: { backgroundColor: backgroundColor }
         }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Party" component={PartyScreen} />
         <Stack.Screen name="Order" component={OrderScreen} />

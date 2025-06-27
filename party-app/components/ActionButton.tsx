@@ -21,7 +21,7 @@ const style = StyleSheet.create({
         width: '90%',
         alignSelf: 'center',
         marginVertical: 20,
-        borderRadius: 16,
+        borderRadius: 34,
         display: 'flex',
         justifyContent: 'center',
         overflow: 'hidden', // clips corners of image and blur view
