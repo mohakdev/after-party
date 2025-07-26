@@ -28,7 +28,7 @@ const PartyScreen = ({ navigation, route }: NavigationProps) => {
 
             <Text style={partyStyle.subHeader}>Host</Text>
             <Text style={partyStyle.content}>{route.params.party.host_id}</Text>
-            <ActionButton title='BUY TICKETS' onClick={() => navigation.navigate("Order", orderParams)} />
+            <ActionButton title='BUY TICKETS' onClick={() => navigation.navigate("Order", orderParams)} alignToBottom={true} />
         </View>
     )
 }

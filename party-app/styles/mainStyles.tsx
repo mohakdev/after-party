@@ -10,6 +10,23 @@ const mainStyles = StyleSheet.create({
         paddingRight: 8,
         backgroundColor: backgroundColor,
     },
+    profileIcon: {
+        width: 100,
+        height: 100,
+    },
+    profilePageButton: {
+        width: '100%',
+        textAlign: 'center',
+        backgroundColor: '#363636',
+        borderRadius: 8,
+        marginVertical: 10,
+    },
+    profilePageButtonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        textAlign: 'center',
+        paddingVertical: 10,
+    },
 });
 
 export default mainStyles;

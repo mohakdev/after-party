@@ -33,7 +33,7 @@ const OrderScreen = ({ navigation, route }: NavigationProps) => {
             <TextRow label='Platform Fees' value={'₹' + platformFees} />
             <TextRow label='GST' value={'₹' + taxes.toString()} />
             <GrandTotal totalPrice={grandTotal} />
-            <ActionButton title='PROCEED TO PAY' onClick={() => console.log("Ticket was purchased!")} />
+            <ActionButton title='PROCEED TO PAY' onClick={() => console.log("Ticket was purchased!")} alignToBottom={true} />
         </View>
     )
 }

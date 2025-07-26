@@ -11,6 +11,7 @@ import { useFonts } from 'expo-font';
 import { backgroundColor } from './styles/colors';
 import OrderScreen from './screens/OrderScreen';
 import LoginScreen from './screens/LoginScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -31,7 +32,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login"
+      <Stack.Navigator initialRouteName="Home"
         screenOptions={{
           headerShown: false,
           animation: 'none',
@@ -43,6 +44,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Party" component={PartyScreen} />
         <Stack.Screen name="Order" component={OrderScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

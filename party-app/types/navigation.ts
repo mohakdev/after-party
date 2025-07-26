@@ -5,6 +5,6 @@ export type RootStackParamList = {
     Home: undefined;
     Party: { party: Party };
     Order: { userId: string, party: Party };
-    Profile: { userId: string };
+    Profile: undefined;
     Host: { userId: string };
 };

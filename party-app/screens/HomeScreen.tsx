@@ -19,9 +19,9 @@ const HomeScreen = ({ navigation }: NavigationProps) => {
             <View style={homeStyle.header}>
                 <View>
                     <Text style={homeStyle.headerText}>Find Events Near</Text>
-                    <Text style={homeStyle.cityText}>Jaipur, India</Text>
+                    <Text style={homeStyle.cityText}>Chennai, India</Text>
                 </View>
-                <ProfileButton />
+                <ProfileButton onClick={() => navigation.navigate("Profile")} />
             </View>
             <SearchBar />
             <Text style={homeStyle.headingText}>Popular Now</Text>
