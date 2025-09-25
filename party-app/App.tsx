@@ -12,6 +12,7 @@ import { backgroundColor } from './styles/colors';
 import OrderScreen from './screens/OrderScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import HostScreen from './screens/HostScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -45,6 +46,7 @@ export default function App() {
         <Stack.Screen name="Party" component={PartyScreen} />
         <Stack.Screen name="Order" component={OrderScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Host" component={HostScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

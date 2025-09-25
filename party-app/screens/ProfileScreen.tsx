@@ -34,7 +34,7 @@ const ProfileScreen = ({ navigation }: NavigationProps) => {
                 <Text style={[mainStyles.profilePageButtonText, { color: '#FF0000' }]}>Log out</Text>
             </Pressable>
 
-            <ActionButton alignToBottom={true} onClick={() => navigation.navigate('Home')} title='HOST NEW PARTY' />
+            <ActionButton alignToBottom={true} onClick={() => navigation.navigate('Host', { userId: '1234' })} title='NEW PARTY' />
         </View>
     )
 }

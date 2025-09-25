@@ -13,7 +13,6 @@ import Party, { PartyOne, PartyTwo } from '../types/party';
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const HomeScreen = ({ navigation }: NavigationProps) => {
-
     return (
         <View style={mainStyles.screen}>
             <View style={homeStyle.header}>
