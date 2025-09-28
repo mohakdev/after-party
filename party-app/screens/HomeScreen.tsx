@@ -9,16 +9,18 @@ import homeStyle from '../styles/homeStyles';
 import PartyProfile from '../components/PartyProfile';
 import mainStyles from '../styles/mainStyles';
 import Party, { PartyOne, PartyTwo } from '../types/party';
+import { getCity } from '../hooks/getCity';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const HomeScreen = ({ navigation }: NavigationProps) => {
+    const city = getCity();
     return (
         <View style={mainStyles.screen}>
             <View style={homeStyle.header}>
                 <View>
                     <Text style={homeStyle.headerText}>Find Events Near</Text>
-                    <Text style={homeStyle.cityText}>Chennai, India</Text>
+                    <Text style={homeStyle.cityText}>{city}, India</Text>
                 </View>
                 <ProfileButton onClick={() => navigation.navigate("Profile")} />
             </View>

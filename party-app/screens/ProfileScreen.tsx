@@ -10,8 +10,6 @@ import ActionButton from '../components/ActionButton';
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Profile'>;
 
 const ProfileScreen = ({ navigation }: NavigationProps) => {
-    const [userName, setUserName] = React.useState(1);
-
     return (
         <View style={mainStyles.screen}>
             <View style={{ marginHorizontal: 8, display: 'flex', flexDirection: 'row', marginBottom: 18 }}>
