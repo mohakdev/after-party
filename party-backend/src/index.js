@@ -27,6 +27,7 @@ app.use('/party', partyRouter);
 
 app.get('/', (req, res) => {
     res.status(200);
+    console.log("Headers:", req.headers);
     res.send("Hello world");
 });
 
